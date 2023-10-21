@@ -8,17 +8,19 @@ Feature: Login Web DQS
     And User click button login
     Then User get text Hello on dashboard
 
+       #TCC.DQS.003
+  Scenario: Login with Empty Password and Username
+    Given User logout
+    When User input empty username
+    And User input empty password
+    And User click button login
+    Then User get text Error message
+
     #TCC.DQS.002
     Scenario: Login with Invalid Password Test
-      Given User logout
-      When  User input valid username
+      Given  User input valid username
       And User input invalid password
       And User click button login
       Then User get text ERROR
 
-      #TCC.DQS.003
-  Scenario: Login with Empty Password and Username
-    Given User input empty username
-    And User input empty password
-    And User click button login
-    Then User get text Error
+

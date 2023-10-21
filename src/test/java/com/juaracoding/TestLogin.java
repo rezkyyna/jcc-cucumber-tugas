@@ -62,13 +62,33 @@ public class TestLogin {
         loginPage.getTextHello();
     }
 
+
     //TCC.DQS.002
     @Given("User logout")
     public void user_logout(){
+
         loginPage.logout();
     }
+    @When("User input empty username")
+    public void user_input_empty_username(){
+
+        loginPage.username("");
+    }
+    @And("User input empty password")
+    public void user_input_empty_password(){
+
+        loginPage.password("");
+    }
+    @Then("User get text Error message")
+    public void user_get_text_error_message(){
+
+        loginPage.getErrorMessage();
+    }
+
+    //TCC.DQS.003
     @And("User input invalid password")
     public void user_input_invalid_password(){
+
         loginPage.password("kita24356");
     }
     @Then("User get text ERROR")
@@ -76,19 +96,7 @@ public class TestLogin {
         loginPage.getTxtErrorWrongPassword();
     }
 
-    //TCC.DQS.003
-    @Given("User input empty username")
-    public void user_input_empty_username(){
-        loginPage.username("");
-    }
-    @Given("User input empty password")
-    public void user_input_empty_password(){
-        loginPage.password("");
-    }
-    @Then("User get text Error")
-    public void user_get_text_error(){
-        loginPage.getErrorMessage();
-    }
+
 
 
 
